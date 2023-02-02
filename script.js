@@ -18,6 +18,14 @@ var characterDetailsEndpoints =
 var characters;
 var indexClickTracker = -1;
 
+if (localStorage.getItem("stringlist") != null) {
+    setStringList([]);
+}
+
+function setStringList(list) {
+    localStorage.setItem("stringList", JSON.stringify(list));
+}
+
 apiCall({
     endpoint: charactersEndpoints,
     type: ApiType.charactersList,
@@ -114,17 +122,47 @@ function populateCharactersToHtml(data) {
 }
 
 function getCharacterHtmlCard(data) {
+    // console.log(data);
     let elementId = data.id;
 
     var cardsHTML = `
-        <div class="card" onclick="onCardClick(${elementId})">
-          <img src="${data.thumbnail.path}.${data.thumbnail.extension}" alt="${data.name}">
+        <div class="card" >
+          <img src="${data.thumbnail.path}.${data.thumbnail.extension}" alt="${
+        data.name
+    }">
           <h5>${data.name}</h5>
           <p>${data.description}</p>
+          <button class="card-btn" onClick=(handleFavourite(${elementId}))>
+          ${
+              !isFavourite(elementId)
+                  ? "Add to Favourites"
+                  : "Remove from Favourites"
+          }
+          </button>
+
+          <button class="card-btn" onclick="onCardClick(${elementId})"> Show More
+                </button>
         </div>
       `;
 
     return cardsHTML;
+}
+
+function handleFavourite(elementId) {
+    console.log("HANDLE FAVOURITES : " + elementId);
+    !isFavourite(elementId) ? addString(elementId) : removeString(elementId);
+    if (!isFavourite()) {
+        Array.prototype.find.call(characters.data.results, x => {
+            if (x.id == elementId) {
+                addItemsDataToFavourites(elementId, x);
+            }
+        });
+    }
+}
+
+function isFavourite(elementId) {
+    let list = JSON.parse(localStorage.getItem("stringList")) || [];
+    return list.indexOf(elementId) > -1;
 }
 
 function onCardClick(elementId) {
@@ -158,6 +196,47 @@ function submitJSON(path, data, postName) {
     window.location.href = "details/showItemContent.html";
 }
 
+function addItemsDataToFavourites(x, data) {
+    console.log("fav_" + data.id);
+    console.log(data);
+    localStorage.setItem("fav_" + data.id, JSON.stringify(data));
+}
+
 function addToFavourite(path, data, postName) {}
 
-///v1/public/characters/1017100
+function addString(str) {
+    let list = JSON.parse(localStorage.getItem("stringList")) || [];
+    list.push(str);
+    localStorage.setItem("stringList", JSON.stringify(list));
+    location.reload();
+}
+
+function removeString(str) {
+    let list = JSON.parse(localStorage.getItem("stringList")) || [];
+    let index = list.indexOf(str);
+    if (index > -1) {
+        list.splice(index, 1);
+    }
+    localStorage.setItem("stringList", JSON.stringify(list));
+    location.reload();
+}
+
+function getStringList() {
+    let list = JSON.parse(localStorage.getItem("stringList")) || [];
+    return list;
+}
+
+function loadFavourites() {
+    let list = getStringList();
+    let cardsHTML = "";
+    for (let i = 0; i < list.length; i++) {
+        let itemId = list[i];
+        var character = JSON.parse(localStorage.getItem("fav_" + itemId));
+        if (character == null) {
+            console.log("no data stored at " + "fav_" + itemId);
+        }
+        var htmlContent = getCharacterHtmlCard(character);
+        cardsHTML += htmlContent;
+    }
+    document.querySelector(".grid-container").innerHTML = cardsHTML;
+}
