@@ -1,5 +1,5 @@
 /*keys*/
-var baseUrl = "http://gateway.marvel.com/";
+var baseUrl = "https://gateway.marvel.com/";
 var publicAPI = "3517d93a9e09c8b849525ffce1f66dea";
 var privateAPI = "29660c66a665288bd61fbd97be3516d39fbd348b";
 
