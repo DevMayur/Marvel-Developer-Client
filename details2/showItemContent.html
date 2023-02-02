@@ -1,0 +1,63 @@
+<html>
+    <head>
+        <title>Superhero Profile</title>
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+            integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer" />
+        <link rel="stylesheet" type="text/css" href="../card-style.css" />
+        <link rel="stylesheet" type="text/css" href="style.css" />
+    </head>
+    <body>
+        <div class="container">
+            <div class="box">
+                <b></b>
+                <img id="thumbnail" src="../spiderman.jpg" alt="Spider-Man" />
+                <div class="content">
+                    <h2 id="header">Spider-Man</h2>
+                    <ul class="sci"></ul>
+                </div>
+            </div>
+        </div>
+
+        <h1 id="title">Superhero Profile</h1>
+        <div class="profile">
+            <div class="details">
+                <p id="description">The friendly neighborhood Spider-Man</p>
+                <p id="description-preview"></p>
+                <p id="description-text"></p>
+                <p id="modified">Modified: Jan 1, 2023</p>
+                <div id="date-container" class="date-container"></div>
+                <br />
+                <div id="price-container" class="price-container"></div>
+            </div>
+        </div>
+
+        <h2 id="characters-container">Characters</h2>
+        <div id="characters" class="card-container"></div>
+
+        <h2 id="series-container">Series</h2>
+        <div id="series" class="card-container"></div>
+
+        <h2 id="variants-container">Varients</h2>
+        <div id="variants" class="card-container"></div>
+
+        <h2 id="stories-container">Stories</h2>
+        <div id="stories" class="card-container"></div>
+
+        <h2 id="events-container">Events</h2>
+        <div id="events" class="card-container"></div>
+
+        <h2 id="creators-container">Creators</h2>
+        <div id="creators" class="card-container"></div>
+
+        <h2 id="urls-container">Urls</h2>
+        <div id="urls" class="card-container"></div>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/core.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/md5.js"></script>
+        <script src="details.js"></script>
+    </body>
+</html>

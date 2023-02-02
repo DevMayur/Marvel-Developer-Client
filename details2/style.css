@@ -1,0 +1,153 @@
+body::-webkit-scrollbar {
+    width: 10px;
+    background-color: #333;
+    border-radius: 10px;
+}
+
+body::-webkit-scrollbar-thumb {
+    background-color: #fbfbfb;
+    border-radius: 10px;
+}
+
+body {
+    background-color: #f8f8f8;
+    color: #4d0202;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+h1 {
+    font-size: 3em;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.profile {
+    display: flex;
+    align-items: center;
+    margin-bottom: 50px;
+}
+
+img {
+    width: 300px;
+    height: 300px;
+    border-radius: 10px;
+    object-fit: cover;
+    margin-right: 50px;
+}
+
+.details {
+    text-align: left;
+}
+
+.card-container {
+    display: flex;
+    overflow-x: scroll;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    width: 80%;
+}
+
+.card {
+    width: 300px;
+    height: 100px;
+    min-width: 250px;
+    margin-right: 50px;
+    background-color: #ffffff;
+    color: #0c2340;
+    border-radius: 10px;
+    box-shadow: 4px 4px 4px rgb(154, 154, 154);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    transition: all 0.2s ease-in-out;
+}
+
+.card:hover {
+    cursor: pointer;
+    background-color: #333;
+    color: white;
+}
+
+h2 {
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+p {
+    font-size: 1.5em;
+    margin-bottom: 20px;
+}
+
+.card-container {
+    overflow-x: scroll; /* show horizontal scrollbar only when needed */
+    overflow-y: hidden; /* hide the vertical scrollbar */
+    -ms-overflow-style: none; /* hide scrollbar in Internet Explorer */
+    scrollbar-width: none; /* hide scrollbar in Firefox */
+}
+
+.card-container::-webkit-scrollbar {
+    display: none; /* hide scrollbar in Chrome, Safari, and Edge */
+}
+
+.card-container .card .card-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+}
+
+.card-container .card .card-content img {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 10px;
+}
+
+.card-container .card .card-label {
+    font-size: 14px;
+    font-weight: bold;
+    color: #333;
+}
+
+.details {
+    margin-left: 8%;
+    margin-right: 8%;
+}
+
+.date-container {
+    width: 600px;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    border: 1px solid black;
+    padding: 20px;
+}
+
+.price-container {
+    width: 600px;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    border: 1px solid black;
+    padding: 20px;
+}
+.date-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+.date-label {
+    font-weight: bold;
+    padding-right: 20px;
+}

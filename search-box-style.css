@@ -1,0 +1,164 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap");
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(45deg, #2196f3, #ff4685);
+}
+
+.grid-wrapper::-webkit-scrollbar {
+    width: 10px;
+    background-color: #333;
+    border-radius: 10px;
+}
+
+.grid-wrapper::-webkit-scrollbar-thumb {
+    background-color: #ebebeb;
+    border-radius: 10px;
+}
+
+.search-container {
+    position: relative;
+    padding: 50px;
+    background: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
+}
+.search-container .inputBox {
+    position: relative;
+    width: 350px;
+}
+.search-container .inputBox input {
+    position: relative;
+    padding: 8px 10px;
+    width: 100%;
+    border: none;
+    outline: none;
+    background: transparent;
+    color: #fff;
+    font-size: 1.25em;
+    letter-spacing: 0.05em;
+    z-index: 2;
+}
+.search-container .inputBox span {
+    position: absolute;
+    left: 0;
+    padding: 10px 0;
+    pointer-events: none;
+    font-size: 1em;
+    transition: 0.5s;
+    color: #333;
+    letter-spacing: 0.05em;
+}
+.search-container .inputBox input:valid ~ span,
+.search-container .inputBox input:focus ~ span {
+    font-size: 0.85em;
+    transform: translateY(-32px);
+}
+.search-container .inputBox i {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(45deg, #2196f3, #ff4685);
+    transition: 0.5s;
+    z-index: 1;
+    border-radius: 4px;
+    pointer-events: none;
+}
+.search-container .inputBox input:valid ~ i,
+.search-container .inputBox input:focus ~ i {
+    height: 100%;
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.25);
+}
+
+.grid-wrapper {
+    width: 60%;
+    height: 100vh;
+    overflow: auto;
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+}
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.brand {
+    font-size: 20px;
+    font-weight: bold;
+}
+.search-container {
+    min-height: 120px;
+    display: flex;
+    align-items: center;
+    background-color: #f2f2f2;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.1);
+}
+form {
+    display: flex;
+    align-items: center;
+}
+input[type="text"] {
+    width: 60%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px 0px 0px 5px;
+    font-size: 16px;
+}
+button[type="submit"] {
+    width: 40%;
+    padding: 10px;
+    border: none;
+    border-radius: 0px 5px 5px 0px;
+    background-color: #4caf50;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+}
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-gap: 20px;
+    padding: 20px;
+}
+.card {
+    background-color: #fff;
+    box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    text-align: center;
+    overflow: hidden;
+}
+.card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+.card p {
+    padding: 20px;
+    font-size: 16px;
+}
+.card:hover {
+    cursor: pointer;
+    background-color: aqua;
+    color: #333;
+    padding: 20px;
+    font-size: 16px;
+}
